@@ -1,38 +1,61 @@
 import React from 'react'
-import { Box, Input, Button } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { setPhoneNumber } from '../redux/phoneNumberSlice'
+import { View, TextInput, Button, StyleSheet } from 'react-native'
 
-export const PhoneNumberInput = () => {
-  const num = useSelector(state => state.phoneNumber.value)
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+export const PhoneNumberInput = (props) => {
+  const handleNumberChange = (newNum) => {
+    props.passNumberData(newNum)
+  }
 
-  const handleNumberChange = (event) => {
-    dispatch(setPhoneNumber(event.target.value))
+  const onPressMemorize = () => {
+    props.changeVisibility(false)
   }
 
   return (
-        <div>
-            <Box sx={{
-              marginTop: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
-            }}>
-                <Input label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890' value={ num } onChange={handleNumberChange} />
-                <Button variant="outlined" sx={{
-                  marginTop: 2
-                }}
-                onClick={() => {
-                  navigate('/memorize')
-                }}>
-                Start Memorizing!
-                </Button>
-            </Box>
-        </div>
+        <>
+            {
+                props.isActive &&
+                <View style={styles.container}>
+                  <h2>
+                    Enter a Phone Number
+                  </h2>
+                    <TextInput
+                        style={styles.input}
+                        onChangeText={handleNumberChange}
+                        value={props.phoneNumber} />
+                    <Button
+                        style={styles.button}
+                        onPress={onPressMemorize}
+                        title="Time to Memorize"
+                        color="#841584"
+                        accessibilityLabel="Click to start memorizing a phone number"
+                    />
+                </View>
+            }
+        </>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: 20,
+    margin: 10
+  },
+  button: {
+    flex: 0.3,
+    backgroundColor: 'grey',
+    borderWidth: 5,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10
+  }
+})
 
 export default PhoneNumberInput
