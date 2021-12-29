@@ -1,13 +1,19 @@
 import React from 'react'
-import { Box, TextField } from '@mui/material';
+import { Box, Input } from '@mui/material';
 import { Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPhoneNumber } from '../redux/phoneNumberSlice';
 
 export const PhoneNumberInput = () => {
     const num = useSelector(state => state.phoneNumber.value)
     let navigate = useNavigate();
-    console.log(num);
+    const dispatch = useDispatch();
+
+    const handleNumberChange = (event) => {
+        dispatch(setPhoneNumber(event.target.value));
+    }
+
     return (
         <div>
             <Box sx={{ 
@@ -16,7 +22,7 @@ export const PhoneNumberInput = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
             }}>
-                <TextField label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890'/>
+                <Input label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890' value={ num } onChange={(event) => handleNumberChange(event)} />
                 <Button variant="outlined" sx={{
                     marginTop: 2,
                 }}   

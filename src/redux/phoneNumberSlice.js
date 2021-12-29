@@ -7,7 +7,7 @@ export const phoneNumberSlice = createSlice({
   },
   reducers: {
     setPhoneNumber: (state, action) => {
-        state.value = {...state.value, ...action.payload};
+      return {...state, value: action.payload};
     }
   },
 })
