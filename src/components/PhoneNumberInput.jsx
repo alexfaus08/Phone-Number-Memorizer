@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Box, TextField } from '@mui/material';
 import { Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 export const PhoneNumberInput = () => {
-    const [number, setNumber] = useState('');
+    const num = useSelector(state => state.phoneNumber.value)
     let navigate = useNavigate();
+    console.log(num);
     return (
         <div>
             <Box sx={{ 
@@ -14,7 +16,7 @@ export const PhoneNumberInput = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
             }}>
-                <TextField label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890' value={number} onInput={ e => setNumber(e.target.value)} />
+                <TextField label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890'/>
                 <Button variant="outlined" sx={{
                     marginTop: 2,
                 }}   
@@ -24,7 +26,7 @@ export const PhoneNumberInput = () => {
                 Start Memorizing!
                 </Button>
             </Box>
-            { number }
+            The number is: { num }
         </div>
     )
 }

@@ -7,16 +7,20 @@ import {
 import App from "./App";
 import Home from "./routes/Home";
 import MemorizeNumber from "./routes/MemorizeNumber";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const rootElement = document.getElementById("root");
 render(
-  <BrowserRouter>
-  <Routes>
-    <Route path="/" element={ <App />}>
-      <Route index element={<Home />} />
-      <Route path="/memorize" element={<MemorizeNumber />} />
-    </Route>
-  </Routes>
-</BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={ <App />}>
+          <Route index element={<Home />} />
+          <Route path="/memorize" element={<MemorizeNumber />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </Provider>,
   rootElement
 );
