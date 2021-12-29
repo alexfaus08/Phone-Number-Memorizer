@@ -2,6 +2,7 @@ import './App.css'
 import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import PhoneNumberInput from './components/PhoneNumberInput'
+import MemorizeNumber from './components/MemorizeNumber'
 
 function App () {
   const [phoneNumber, setPhoneNumber] = useState('123-444-4444')
@@ -13,6 +14,7 @@ function App () {
                   Enter a Phone Number
               </h2>
               <PhoneNumberInput phoneNumber={phoneNumber} passNumberData={setPhoneNumber} isActive={inputIsActive} changeVisibility={setInputIsActive} />
+              <MemorizeNumber phoneNumber={phoneNumber} isActive={!inputIsActive} changeVisibility={setInputIsActive}/>
           </View>
       </>
   )

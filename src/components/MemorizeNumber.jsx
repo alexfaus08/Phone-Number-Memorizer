@@ -1,8 +1,14 @@
 import React from 'react'
 
-const MemorizeNumber = () => {
+const MemorizeNumber = (props) => {
   return (
         <>
+            {
+                props.isActive &&
+                    <>
+                        Time to memorize {props.phoneNumber}
+                    </>
+            }
         </>
   )
 }
