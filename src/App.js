@@ -5,7 +5,7 @@ import PhoneNumberInput from './components/PhoneNumberInput'
 import MemorizeNumber from './components/MemorizeNumber'
 
 function App () {
-  const [phoneNumber, setPhoneNumber] = useState('123-444-4444')
+  const [phoneNumber, setPhoneNumber] = useState('1234444444')
   const [inputIsActive, setInputIsActive] = useState(true)
   return (
       <>
