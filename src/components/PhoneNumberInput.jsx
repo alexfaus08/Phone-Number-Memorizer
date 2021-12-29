@@ -11,21 +11,24 @@ export const PhoneNumberInput = (props) => {
   }
 
   return (
-        <div>
-            <View style={styles.container}>
-                <TextInput
-                    style={styles.input}
-                    onChangeText={handleNumberChange}
-                    value={props.phoneNumber} />
-                <Button
-                    style={styles.button}
-                    onPress={onPressMemorize}
-                    title="Time to Memorize"
-                    color="#841584"
-                    accessibilityLabel="Click to start memorizing a phone number"
-                />
-            </View>
-        </div>
+        <>
+            {
+                props.isActive &&
+                <View style={styles.container}>
+                    <TextInput
+                        style={styles.input}
+                        onChangeText={handleNumberChange}
+                        value={props.phoneNumber} />
+                    <Button
+                        style={styles.button}
+                        onPress={onPressMemorize}
+                        title="Time to Memorize"
+                        color="#841584"
+                        accessibilityLabel="Click to start memorizing a phone number"
+                    />
+                </View>
+            }
+        </>
   )
 }
 
