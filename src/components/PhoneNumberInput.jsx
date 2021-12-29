@@ -13,13 +13,14 @@ export const PhoneNumberInput = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
             }}>
-                <TextField label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890' value={number} onInput={ e=>(e.target.value)} />
+                <TextField label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890' value={number} onInput={ e => setNumber(e.target.value)} />
                 <Button variant="outlined" sx={{
                     marginTop: 2,
                 }}
                 >Start Memorizing!
                 </Button>
             </Box>
+            { number }
         </div>
     )
 }
