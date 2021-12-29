@@ -22,7 +22,7 @@ export const PhoneNumberInput = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
             }}>
-                <Input label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890' value={ num } onChange={(event) => handleNumberChange(event)} />
+                <Input label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890' value={ num } onChange={handleNumberChange} />
                 <Button variant="outlined" sx={{
                     marginTop: 2,
                 }}   
