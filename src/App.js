@@ -14,7 +14,12 @@ function App () {
                   Phone Number Memorizing Tool
               </h1>
               <PhoneNumberInput phoneNumber={phoneNumber} passNumberData={setPhoneNumber} isActive={inputIsActive} changeVisibility={setInputIsActive} />
-              <MemorizeNumber phoneNumber={phoneNumber} isActive={!inputIsActive} changeVisibility={setInputIsActive}/>
+              {
+                  !inputIsActive &&
+                      <>
+                          <MemorizeNumber phoneNumber={phoneNumber} isActive={!inputIsActive} changeVisibility={setInputIsActive}/>
+                      </>
+              }
           </View>
       </>
   )
