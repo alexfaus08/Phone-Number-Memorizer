@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const phoneNumberSlice = createSlice({
   name: 'phoneNumber',
   initialState: {
-    value: '1234',
+    value: '123-456-7890',
   },
   reducers: {
     setPhoneNumber: (state, action) => {

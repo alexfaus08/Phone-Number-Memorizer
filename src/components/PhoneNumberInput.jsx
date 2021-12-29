@@ -32,7 +32,6 @@ export const PhoneNumberInput = () => {
                 Start Memorizing!
                 </Button>
             </Box>
-            The number is: { num }
         </div>
     )
 }
