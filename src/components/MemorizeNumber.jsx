@@ -2,9 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Digit from './Digit'
 
 const MemorizeNumber = (props) => {
-  const [digits, setDigits] = useState([])
+  const [firstDigits, setFirstDigits] = useState([])
+  const [middleDigits, setMiddleDigits] = useState([])
+  const [lastDigits, setLastDigits] = useState([])
   useEffect(() => {
-    setDigits(props.phoneNumber.split(''))
+    const digits = props.phoneNumber.split('')
+    setFirstDigits(digits.slice(0, 3))
+    setMiddleDigits(digits.slice(3, 6))
+    setLastDigits(digits.slice(6, 10))
   }, [])
 
   return (
@@ -12,9 +17,21 @@ const MemorizeNumber = (props) => {
             {
                 props.isActive &&
                     <>
-                        {digits.map((digit, id) => {
-                          return <Digit digit={digit} key={id} />
-                        })}
+                        <div>
+                            {firstDigits.map((digit, id) => {
+                              return <Digit digit={digit} key={id} />
+                            })}
+                        </div>
+                        <div>
+                            {middleDigits.map((digit, id) => {
+                              return <Digit digit={digit} key={id} />
+                            })}
+                        </div>
+                        <div>
+                            {lastDigits.map((digit, id) => {
+                              return <Digit digit={digit} key={id} />
+                            })}
+                        </div>
                     </>
             }
         </>
