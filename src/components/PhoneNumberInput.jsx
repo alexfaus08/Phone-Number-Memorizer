@@ -1,36 +1,30 @@
 import React from 'react'
-import { Box, Input, Button } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { setPhoneNumber } from '../redux/phoneNumberSlice'
+import { View, TextInput, Button } from 'react-native'
 
-export const PhoneNumberInput = () => {
-  const num = useSelector(state => state.phoneNumber.value)
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-
+export const PhoneNumberInput = (props) => {
   const handleNumberChange = (event) => {
-    dispatch(setPhoneNumber(event.target.value))
+    props.phoneNumber = event.target.value
+  }
+
+  const onPressMemorize = () => {
+    props.isActive = false
   }
 
   return (
         <div>
-            <Box sx={{
-              marginTop: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
-            }}>
-                <Input label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890' value={ num } onChange={handleNumberChange} />
-                <Button variant="outlined" sx={{
-                  marginTop: 2
-                }}
-                onClick={() => {
-                  navigate('/memorize')
-                }}>
-                Start Memorizing!
-                </Button>
-            </Box>
+            <View>
+                <h1>Phone Number Memorizing Tool</h1>
+                <TextInput>
+                    onChangeText={handleNumberChange}
+                    value={props.phoneNumber}
+                </TextInput>
+                <Button
+                    onPress={onPressMemorize}
+                    title="Time to Memorize"
+                    color="#841584"
+                    accessibilityLabel="Click to start memorizing a phone number"
+                />
+            </View>
         </div>
   )
 }

@@ -16,7 +16,7 @@ const Home = () => {
             <Typography variant="h2" component="div" gutterBottom>
                 Enter a Phone Number
             </Typography>
-            <PhoneNumberInput />
+            <PhoneNumberInput phoneNumber='123-555-4444' />
             </Box>
         </Container>
         </div>
