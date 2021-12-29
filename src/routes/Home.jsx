@@ -1,17 +1,17 @@
 import React from 'react'
-import { Container, Box, Typography } from '@mui/material';
-import PhoneNumberInput from '../components/PhoneNumberInput';
+import { Container, Box, Typography } from '@mui/material'
+import PhoneNumberInput from '../components/PhoneNumberInput'
 
 const Home = () => {
-    return (
+  return (
         <div>
         <Container maxWidth='md'>
-            <Box 
+            <Box
                 sx={{
-                marginTop: 8,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
+                  marginTop: 8,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center'
                 }}>
             <Typography variant="h2" component="div" gutterBottom>
                 Enter a Phone Number
@@ -20,7 +20,7 @@ const Home = () => {
             </Box>
         </Container>
         </div>
-    )
+  )
 }
 
 export default Home
