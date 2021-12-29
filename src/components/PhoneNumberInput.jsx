@@ -2,12 +2,12 @@ import React from 'react'
 import { View, TextInput, Button, StyleSheet } from 'react-native'
 
 export const PhoneNumberInput = (props) => {
-  const handleNumberChange = (event) => {
-    props.phoneNumber = event.target.value
+  const handleNumberChange = (newNum) => {
+    props.passNumberData(newNum)
   }
 
   const onPressMemorize = () => {
-    props.isActive = false
+    props.changeVisibility(false)
   }
 
   return (

@@ -1,16 +1,18 @@
 import './App.css'
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import PhoneNumberInput from './components/PhoneNumberInput'
 
 function App () {
+  const [phoneNumber, setPhoneNumber] = useState('123-444-4444')
+  const [inputIsActive, setInputIsActive] = useState(true)
   return (
       <>
           <View style={styles.container}>
               <h2>
                   Enter a Phone Number
               </h2>
-              <PhoneNumberInput phoneNumber='123-555-4444' isActive={true} />
+              <PhoneNumberInput phoneNumber={phoneNumber} passNumberData={setPhoneNumber} isActive={inputIsActive} changeVisibility={setInputIsActive} />
           </View>
       </>
   )
