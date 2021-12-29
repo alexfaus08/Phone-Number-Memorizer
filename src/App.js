@@ -10,9 +10,9 @@ function App () {
   return (
       <>
           <View style={styles.container}>
-              <h2>
-                  Enter a Phone Number
-              </h2>
+              <h1>
+                  Phone Number Memorizing Tool
+              </h1>
               <PhoneNumberInput phoneNumber={phoneNumber} passNumberData={setPhoneNumber} isActive={inputIsActive} changeVisibility={setInputIsActive} />
               <MemorizeNumber phoneNumber={phoneNumber} isActive={!inputIsActive} changeVisibility={setInputIsActive}/>
           </View>

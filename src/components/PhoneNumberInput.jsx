@@ -15,6 +15,9 @@ export const PhoneNumberInput = (props) => {
             {
                 props.isActive &&
                 <View style={styles.container}>
+                  <h2>
+                    Enter a Phone Number
+                  </h2>
                     <TextInput
                         style={styles.input}
                         onChangeText={handleNumberChange}
