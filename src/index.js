@@ -1,16 +1,17 @@
-import { render } from "react-dom";
+import { render } from 'react-dom'
 import {
   BrowserRouter,
   Routes,
   Route
-} from "react-router-dom";
-import App from "./App";
-import Home from "./routes/Home";
-import MemorizeNumber from "./routes/MemorizeNumber";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+} from 'react-router-dom'
+import App from './App'
+import Home from './routes/Home'
+import MemorizeNumber from './routes/MemorizeNumber'
+import { Provider } from 'react-redux'
+import store from './redux/store'
+import React from 'react'
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root')
 render(
   <Provider store={store}>
     <BrowserRouter>
@@ -23,4 +24,4 @@ render(
     </BrowserRouter>
   </Provider>,
   rootElement
-);
+)

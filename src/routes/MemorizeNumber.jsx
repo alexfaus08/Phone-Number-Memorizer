@@ -30,7 +30,7 @@ const MemorizeNumber = () => {
             />
             </Box>
         </div>
-    )
+  )
 }
 
 export default MemorizeNumber

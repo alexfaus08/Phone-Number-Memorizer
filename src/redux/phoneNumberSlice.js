@@ -7,9 +7,9 @@ export const phoneNumberSlice = createSlice({
   },
   reducers: {
     setPhoneNumber: (state, action) => {
-      return {...state, value: action.payload};
+      return { ...state, value: action.payload }
     }
-  },
+  }
 })
 
 // Action creators are generated for each case reducer function
