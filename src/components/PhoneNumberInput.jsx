@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, TextField } from '@mui/material';
 import { Button } from '@mui/material';
 
 export const PhoneNumberInput = () => {
+    const [number, setNumber] = useState('');
+
     return (
         <div>
             <Box sx={{ 
@@ -11,10 +13,12 @@ export const PhoneNumberInput = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
             }}>
-                <TextField label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890'/>
+                <TextField label='Phone Number' variant='outlined' fullWidth placeholder='123-456-7890' value={number} onInput={ e=>(e.target.value)} />
                 <Button variant="outlined" sx={{
                     marginTop: 2,
-                }}>Start Memorizing!</Button>
+                }}
+                >Start Memorizing!
+                </Button>
             </Box>
         </div>
     )
