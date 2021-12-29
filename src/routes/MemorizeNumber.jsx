@@ -1,9 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const MemorizeNumber = () => {
+    const num = useSelector(state => state.phoneNumber.value)
+
     return (
         <div>
-            HELLO
+            Time to memorize: { num }
         </div>
     )
 }
