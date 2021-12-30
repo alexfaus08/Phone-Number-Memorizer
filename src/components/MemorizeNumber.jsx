@@ -17,17 +17,17 @@ const MemorizeNumber = (props) => {
             {
                 props.isActive &&
                     <>
-                        <div>
+                        <div className="row">
                             {firstDigits.map((digit, id) => {
                               return <Digit digit={digit} key={id} />
                             })}
                         </div>
-                        <div>
+                        <div className="row">
                             {middleDigits.map((digit, id) => {
                               return <Digit digit={digit} key={id} />
                             })}
                         </div>
-                        <div>
+                        <div className="row">
                             {lastDigits.map((digit, id) => {
                               return <Digit digit={digit} key={id} />
                             })}
