@@ -6,15 +6,15 @@ const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
   const [firstDigits, setFirstDigits] = useState([
     {
-      digit: 0,
+      digit: '0',
       editable: true
     },
     {
-      digit: 0,
+      digit: '0',
       editable: true
     },
     {
-      digit: 0,
+      digit: '0',
       editable: true
     }
   ])
@@ -34,19 +34,19 @@ const MemorizeNumber = (props) => {
     const tempLastDigits = []
     digits.slice(0, 3).forEach((digit) => {
       tempFirstDigits.push({
-        digit: digit,
+        digit: digit.toString(),
         editable: true
       })
     })
     digits.slice(3, 6).forEach((digit) => {
       tempMiddleDigits.push({
-        digit: digit,
+        digit: digit.toString(),
         editable: true
       })
     })
     digits.slice(6, 10).forEach((digit) => {
       tempLastDigits.push({
-        digit: digit,
+        digit: digit.toString(),
         editable: true
       })
     })
