@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Digit from './Digit'
+import { Button } from 'react-native'
 
 const MemorizeNumber = (props) => {
+  const [step, setStep] = useState(0)
   const [firstDigits, setFirstDigits] = useState([
     {
       digit: 0,
@@ -18,6 +20,12 @@ const MemorizeNumber = (props) => {
   ])
   const [middleDigits, setMiddleDigits] = useState([])
   const [lastDigits, setLastDigits] = useState([])
+
+  const nextStep = () => {
+    let value = step
+    value += 1
+    setStep(value)
+  }
   // on component mount
   useEffect(() => {
     const digits = props.phoneNumber.split('')
@@ -49,6 +57,7 @@ const MemorizeNumber = (props) => {
 
   return (
         <>
+          <h1>Step: { step }</h1>
             {
                 props.isActive &&
                     <>
@@ -69,6 +78,11 @@ const MemorizeNumber = (props) => {
                         </div>
                     </>
             }
+          <Button
+              onPress={ nextStep }
+              title="Next step!"
+              color="#841584"
+          />
         </>
   )
 }
