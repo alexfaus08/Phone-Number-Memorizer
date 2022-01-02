@@ -62,7 +62,6 @@ const MemorizeNumber = (props) => {
   }
 
   useEffect(() => {
-    // TODO: clear text fields on step change
     switch (step) {
       case (1):
         hideMiddleDigit()
