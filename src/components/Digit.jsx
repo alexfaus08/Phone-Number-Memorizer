@@ -4,7 +4,7 @@ import { TextInput, StyleSheet } from 'react-native'
 const Digit = (props) => {
   return (
         <div className="digit">
-            <TextInput placeholder={props.digit} style={styles.input} />
+            <TextInput placeholder={props.digit} style={styles.input} editable={props.editable} />
         </div>
   )
 }

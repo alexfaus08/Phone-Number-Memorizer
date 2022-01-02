@@ -2,14 +2,49 @@ import React, { useEffect, useState } from 'react'
 import Digit from './Digit'
 
 const MemorizeNumber = (props) => {
-  const [firstDigits, setFirstDigits] = useState([])
+  const [firstDigits, setFirstDigits] = useState([
+    {
+      digit: 0,
+      editable: true
+    },
+    {
+      digit: 0,
+      editable: true
+    },
+    {
+      digit: 0,
+      editable: true
+    }
+  ])
   const [middleDigits, setMiddleDigits] = useState([])
   const [lastDigits, setLastDigits] = useState([])
+  // on component mount
   useEffect(() => {
     const digits = props.phoneNumber.split('')
-    setFirstDigits(digits.slice(0, 3))
-    setMiddleDigits(digits.slice(3, 6))
-    setLastDigits(digits.slice(6, 10))
+    const tempFirstDigits = []
+    const tempMiddleDigits = []
+    const tempLastDigits = []
+    digits.slice(0, 3).forEach((digit) => {
+      tempFirstDigits.push({
+        digit: digit,
+        editable: true
+      })
+    })
+    digits.slice(3, 6).forEach((digit) => {
+      tempMiddleDigits.push({
+        digit: digit,
+        editable: true
+      })
+    })
+    digits.slice(6, 10).forEach((digit) => {
+      tempLastDigits.push({
+        digit: digit,
+        editable: true
+      })
+    })
+    setFirstDigits(tempFirstDigits)
+    setMiddleDigits(tempMiddleDigits)
+    setLastDigits(tempLastDigits)
   }, [])
 
   return (
@@ -18,18 +53,18 @@ const MemorizeNumber = (props) => {
                 props.isActive &&
                     <>
                         <div className="row">
-                            {firstDigits.map((digit, id) => {
-                              return <Digit digit={digit} key={id} />
+                            {firstDigits.map((entry, id) => {
+                              return <Digit digit={entry.digit} key={id} editable={entry.editable} />
                             })}
                         </div>
                         <div className="row">
-                            {middleDigits.map((digit, id) => {
-                              return <Digit digit={digit} key={id} />
+                            {middleDigits.map((entry, id) => {
+                              return <Digit digit={entry.digit} key={id} editable={entry.editable} />
                             })}
                         </div>
                         <div className="row">
-                            {lastDigits.map((digit, id) => {
-                              return <Digit digit={digit} key={id} />
+                            {lastDigits.map((entry, id) => {
+                              return <Digit digit={entry.digit} key={id} editable={entry.editable} />
                             })}
                         </div>
                     </>
