@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { TextInput, StyleSheet } from 'react-native'
 
 const Digit = (props) => {
+  const [value, setValue] = useState('')
+  useEffect(() => {
+    if (props.clear) {
+      setValue('')
+    }
+  }, [props.clear])
+
   return (
         <div className="digit">
-            <TextInput placeholder={props.digit} style={styles.input} editable={props.editable} />
+            <TextInput placeholder={props.digit} style={styles.input} editable={props.editable} onChangeText={setValue} value={value} />
         </div>
   )
 }

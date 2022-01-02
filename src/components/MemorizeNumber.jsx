@@ -7,15 +7,18 @@ const MemorizeNumber = (props) => {
   const [firstDigits, setFirstDigits] = useState([
     {
       digit: '0',
-      editable: true
+      editable: true,
+      clear: true
     },
     {
       digit: '0',
-      editable: true
+      editable: true,
+      clear: true
     },
     {
       digit: '0',
-      editable: true
+      editable: true,
+      clear: true
     }
   ])
   const [middleDigits, setMiddleDigits] = useState([])
@@ -31,24 +34,29 @@ const MemorizeNumber = (props) => {
     let temp = [...firstDigits]
     temp.forEach((digit) => {
       digit.digit = '?'
+      digit.clear = true
     })
     temp[1] = {
       editable: false,
-      digit: '-'
+      digit: '-',
+      clear: true
     }
     setFirstDigits(temp)
     setMiddleDigits(temp)
     temp = [...lastDigits]
     temp.forEach((digit) => {
       digit.digit = '?'
+      digit.clear = true
     })
     temp[1] = {
       editable: false,
-      digit: '-'
+      digit: '-',
+      clear: true
     }
     temp[2] = {
       editable: false,
-      digit: '-'
+      digit: '-',
+      clear: true
     }
     setLastDigits(temp)
   }
@@ -99,17 +107,17 @@ const MemorizeNumber = (props) => {
                     <>
                         <div className="row">
                             {firstDigits.map((entry, id) => {
-                              return <Digit digit={entry.digit} key={id} editable={entry.editable} />
+                              return <Digit digit={entry.digit} key={id} editable={entry.editable} clear={entry.clear} />
                             })}
                         </div>
                         <div className="row">
                             {middleDigits.map((entry, id) => {
-                              return <Digit digit={entry.digit} key={id} editable={entry.editable} />
+                              return <Digit digit={entry.digit} key={id} editable={entry.editable} clear={entry.clear} />
                             })}
                         </div>
                         <div className="row">
                             {lastDigits.map((entry, id) => {
-                              return <Digit digit={entry.digit} key={id} editable={entry.editable} />
+                              return <Digit digit={entry.digit} key={id} editable={entry.editable} clear={entry.clear} />
                             })}
                         </div>
                     </>
