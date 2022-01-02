@@ -26,6 +26,42 @@ const MemorizeNumber = (props) => {
     value += 1
     setStep(value)
   }
+
+  const hideMiddleDigit = () => {
+    let temp = [...firstDigits]
+    temp.forEach((digit) => {
+      digit.digit = '?'
+    })
+    temp[1] = {
+      editable: false,
+      digit: '-'
+    }
+    setFirstDigits(temp)
+    setMiddleDigits(temp)
+    temp = [...lastDigits]
+    temp.forEach((digit) => {
+      digit.digit = '?'
+    })
+    temp[1] = {
+      editable: false,
+      digit: '-'
+    }
+    temp[2] = {
+      editable: false,
+      digit: '-'
+    }
+    setLastDigits(temp)
+  }
+
+  useEffect(() => {
+    // TODO: clear text fields on step change
+    switch (step) {
+      case (1):
+        hideMiddleDigit()
+        break
+    }
+  }, [step])
+
   // on component mount
   useEffect(() => {
     const digits = props.phoneNumber.split('')
