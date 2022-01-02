@@ -6,17 +6,17 @@ const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
   const [firstDigits, setFirstDigits] = useState([
     {
-      digit: '0',
+      digit: '',
       editable: true,
       clear: true
     },
     {
-      digit: '0',
+      digit: '',
       editable: true,
       clear: true
     },
     {
-      digit: '0',
+      digit: '',
       editable: true,
       clear: true
     }
