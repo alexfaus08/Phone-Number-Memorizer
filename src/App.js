@@ -5,7 +5,7 @@ import PhoneNumberInput from './components/PhoneNumberInput'
 import MemorizeNumber from './components/MemorizeNumber'
 
 function App () {
-  const [phoneNumber, setPhoneNumber] = useState('123-444-4444')
+  const [phoneNumber, setPhoneNumber] = useState('1234567890')
   const [inputIsActive, setInputIsActive] = useState(true)
   return (
       <>
@@ -14,7 +14,12 @@ function App () {
                   Phone Number Memorizing Tool
               </h1>
               <PhoneNumberInput phoneNumber={phoneNumber} passNumberData={setPhoneNumber} isActive={inputIsActive} changeVisibility={setInputIsActive} />
-              <MemorizeNumber phoneNumber={phoneNumber} isActive={!inputIsActive} changeVisibility={setInputIsActive}/>
+              {
+                  !inputIsActive &&
+                      <>
+                          <MemorizeNumber phoneNumber={phoneNumber} isActive={!inputIsActive} changeVisibility={setInputIsActive}/>
+                      </>
+              }
           </View>
       </>
   )

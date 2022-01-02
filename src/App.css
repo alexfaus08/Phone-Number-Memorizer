@@ -1,0 +1,16 @@
+.row {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.digit {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.digitInput {
+    height: 40px;
+    margin: 12px;
+    borderWidth: 1;
+    padding: 10px;
+}
