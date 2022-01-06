@@ -31,10 +31,26 @@ const Row = (props) => {
     return temp
   }
 
+  const hideFirstDigit = (digits) => {
+    const temp = [...digits]
+    temp.forEach((digit) => {
+      digit.digit = '?'
+      digit.clear = true
+    })
+    temp[0] = {
+      editable: false,
+      digit: '-',
+      clear: true
+    }
+    return temp
+  }
+
   const applyStep = (digits) => {
     switch (props.step) {
       case (1):
         return hideMiddleDigit(digits)
+      case (2):
+        return hideFirstDigit(digits)
     }
   }
 
