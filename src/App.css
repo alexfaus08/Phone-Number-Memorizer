@@ -12,13 +12,12 @@
 .digit {
     display: inline-block;
     margin-left: 20px;
+    padding-bottom: 10px;
 }
 
 .digitInput {
-    height: 40px;
-    margin: 12px;
-    borderWidth: 1;
-    padding: 10px;
+    height: 80px;
+    width: 60px;
 }
 
 .hint {

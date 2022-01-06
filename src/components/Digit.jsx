@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { TextInput, StyleSheet } from 'react-native'
+import TextField from '@mui/material/TextField'
 
 const Digit = (props) => {
   const [value, setValue] = useState('')
@@ -7,21 +7,17 @@ const Digit = (props) => {
     setValue('')
   }, [props.step])
 
+  const handleTextInputChange = event => {
+    setValue(event.target.value)
+  }
+
   return (
         <div className="digit">
-            <TextInput placeholder={props.digit} style={[styles.input, props.editable ? styles.disabled : '']} editable={props.editable} onChangeText={setValue} value={value} maxLength={1} />
+          <TextField className="digitInput" disabled={!props.editable} placeholder={props.digit} onChange={handleTextInputChange} value={value} inputProps={{
+            maxLength: 1
+          }} />
         </div>
   )
 }
-
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    width: 40,
-    margin: 12,
-    borderWidth: 1,
-    padding: 10
-  }
-})
 
 export default Digit

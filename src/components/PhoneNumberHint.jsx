@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import VisibilityIcon from '@mui/icons-material/Visibility'
-import IconButton from '@mui/material/IconButton'
+import { Button } from '@mui/material'
 
 const PhoneNumberHint = (props) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -10,13 +10,13 @@ const PhoneNumberHint = (props) => {
   }
 
   return <div className="hint">
-      <IconButton
+      <Button
           onClick={handleClick}
           variant="contained"
+          startIcon={<VisibilityIcon />}
       >
-          <VisibilityIcon />
          {isVisible ? 'Hide Hint' : 'Show Hint'}
-      </IconButton>
+      </Button>
       <div className="number-hint">
         {
           isVisible && <>
