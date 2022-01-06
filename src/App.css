@@ -3,6 +3,12 @@
     overflow-x: auto;
 }
 
+.rows {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .digit {
     display: inline-block;
     margin-left: 20px;
@@ -13,4 +19,24 @@
     margin: 12px;
     borderWidth: 1;
     padding: 10px;
+}
+
+.hint {
+    display: block;
+    align-content: center;
+    margin-top: 100px;
+}
+
+.number-hint {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 35px;
+    color: #595959;
+    letter-spacing: 3px;
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
