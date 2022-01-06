@@ -13,9 +13,12 @@ const Digit = (props) => {
 
   return (
         <div className="digit">
-          <TextField className="digitInput" disabled={!props.editable} placeholder={props.digit} onChange={handleTextInputChange} value={value} inputProps={{
-            maxLength: 1
-          }} />
+          <TextField className="digitInput" disabled={!props.editable} placeholder={props.digit} onChange={handleTextInputChange} value={value}
+          inputProps={{
+            maxLength: 1,
+            style: { textAlign: 'center' }
+          }
+          } />
         </div>
   )
 }
