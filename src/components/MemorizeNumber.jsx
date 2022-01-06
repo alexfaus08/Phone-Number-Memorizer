@@ -16,18 +16,24 @@ const MemorizeNumber = (props) => {
         <>
           <h1>Step: { step }</h1>
             {
-                props.isActive &&
+                props.isActive && step < 4 &&
                     <>
                       <Row digits={digits.slice(0, 3)} step={step} />
                       <Row digits={digits.slice(3, 6)} step={step} />
                       <Row digits={digits.slice(6, 10)} step={step} />
+                        <Button
+                            onPress={ nextStep }
+                            title={step < 3 ? 'Next Step' : 'Done!'}
+                            color="#841584"
+                        />
                     </>
             }
-          <Button
-              onPress={ nextStep }
-              title="Next step!"
-              color="#841584"
-          />
+            {
+                step >= 4 &&
+                    <>
+                    <h2>Congrats!</h2>
+                    </>
+            }
         </>
   )
 }
