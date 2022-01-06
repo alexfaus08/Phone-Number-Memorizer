@@ -25,6 +25,7 @@
     display: block;
     align-content: center;
     margin-top: 100px;
+    margin-right: 200px;
 }
 
 .number-hint {
@@ -38,5 +39,5 @@
 
 .columns {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 3fr;
 }

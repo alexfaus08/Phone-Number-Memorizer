@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, View } from 'react-native'
+import { Button } from 'react-native'
 
 const PhoneNumberHint = (props) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -9,7 +9,6 @@ const PhoneNumberHint = (props) => {
   }
 
   return <div className="hint">
-    <View style={[{ width: '25%' }]}>
       <Button
           title={isVisible ? 'Hide Hint' : 'Show Hint'}
           onPress={handleClick}
@@ -29,7 +28,7 @@ const PhoneNumberHint = (props) => {
           </>
         }
       </div>
-    </View>
+
   </div>
 }
 

@@ -88,7 +88,7 @@ const Row = (props) => {
       digitInputs = applyStep(digitInputs)
     }
     return digitInputs.map((digit, id) => {
-      return <Digit digit={digit.digit} key={id} editable={digit.editable} clear={digit.clear} />
+      return <Digit digit={digit.digit} key={id} editable={digit.editable} step={props.step} />
     })
   }
 
