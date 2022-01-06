@@ -10,7 +10,7 @@ const Row = (props) => {
     }
   }, [])
 
-  const hideMiddleDigit = (digits) => {
+  const disableMiddleDigit = (digits) => {
     const temp = [...digits]
     temp.forEach((digit) => {
       digit.digit = '?'
@@ -31,7 +31,7 @@ const Row = (props) => {
     return temp
   }
 
-  const hideFirstDigit = (digits) => {
+  const disableFirstDigit = (digits) => {
     const temp = [...digits]
     temp.forEach((digit) => {
       digit.digit = '?'
@@ -45,12 +45,36 @@ const Row = (props) => {
     return temp
   }
 
+  const disableLastDigit = (digits) => {
+    const temp = [...digits]
+    temp.forEach((digit) => {
+      digit.digit = '?'
+      digit.clear = true
+    })
+    if (isLastRow) {
+      temp[3] = {
+        editable: false,
+        digit: '-',
+        clear: true
+      }
+    } else {
+      temp[2] = {
+        editable: false,
+        digit: '-',
+        clear: true
+      }
+    }
+    return temp
+  }
+
   const applyStep = (digits) => {
     switch (props.step) {
       case (1):
-        return hideMiddleDigit(digits)
+        return disableMiddleDigit(digits)
       case (2):
-        return hideFirstDigit(digits)
+        return disableLastDigit(digits)
+      case (3):
+        return disableFirstDigit(digits)
     }
   }
 
