@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Button } from 'react-native'
 import Row from './Row'
 import PhoneNumberHint from './PhoneNumberHint'
 import CssBaseline from '@mui/material/CssBaseline'
 import Container from '@mui/material/Container'
+import { Button } from '@mui/material'
 
 const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
@@ -32,10 +32,10 @@ const MemorizeNumber = (props) => {
                         <Row digits={digits.slice(6, 10)} step={step}/>
                       </div>
                       <Button
-                          onPress={ nextStep }
-                          title={step < 4 ? 'Next Step' : 'Done!'}
-                          color="#841584"
-                      />
+                          onClick={ nextStep }
+                      >
+                        {step < 4 ? 'Next Step' : 'Done!'}
+                      </Button>
                     </div>
                   </Container>
                 </>

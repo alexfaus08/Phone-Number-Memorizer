@@ -6,8 +6,8 @@ import { Button } from '@mui/material'
 import Box from '@mui/material/Box'
 
 export const PhoneNumberInput = (props) => {
-  const handleNumberChange = (newNum) => {
-    props.passNumberData(newNum)
+  const handleNumberChange = event => {
+    props.passNumberData(event.target.value)
   }
 
   const onPressMemorize = () => {
@@ -24,7 +24,7 @@ export const PhoneNumberInput = (props) => {
                   </Typography>
                   <Box>
                     <TextField
-                        onChangeText={handleNumberChange}
+                        onChange={handleNumberChange}
                         value={props.phoneNumber} />
                   </Box>
                   <Box sx={{ p: 2 }}>

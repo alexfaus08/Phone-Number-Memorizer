@@ -26,14 +26,4 @@ function App () {
   )
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     backgroundColor: '#fff',
-//     padding: 20,
-//     margin: 10
-//   }
-// })
-
 export default App
