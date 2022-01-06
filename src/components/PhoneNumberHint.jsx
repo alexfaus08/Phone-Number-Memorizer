@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Button } from 'react-native'
+import VisibilityIcon from '@mui/icons-material/Visibility'
+import IconButton from '@mui/material/IconButton'
 
 const PhoneNumberHint = (props) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -9,10 +10,13 @@ const PhoneNumberHint = (props) => {
   }
 
   return <div className="hint">
-      <Button
-          title={isVisible ? 'Hide Hint' : 'Show Hint'}
-          onPress={handleClick}
-      />
+      <IconButton
+          onClick={handleClick}
+          variant="contained"
+      >
+          <VisibilityIcon />
+         {isVisible ? 'Hide Hint' : 'Show Hint'}
+      </IconButton>
       <div className="number-hint">
         {
           isVisible && <>
