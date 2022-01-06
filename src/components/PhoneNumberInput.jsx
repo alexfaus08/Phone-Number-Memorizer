@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, TextInput, Button, StyleSheet } from 'react-native'
+import Typography from '@mui/material/Typography'
 
 export const PhoneNumberInput = (props) => {
   const handleNumberChange = (newNum) => {
@@ -15,9 +16,9 @@ export const PhoneNumberInput = (props) => {
             {
                 props.isActive &&
                 <View style={styles.container}>
-                  <h2>
+                  <Typography variant="h5" component="div" gutterBottom>
                     Enter a Phone Number
-                  </h2>
+                  </Typography>
                     <TextInput
                         style={styles.input}
                         onChangeText={handleNumberChange}
