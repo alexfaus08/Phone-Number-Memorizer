@@ -16,7 +16,7 @@ const PhoneNumberHint = (props) => {
           variant="contained"
           startIcon={<VisibilityIcon />}
       >
-         {isVisible ? 'Hide Hint' : 'Show Hint'}
+         Hover for a hint!
       </Button>
       <div className="number-hint">
         {
