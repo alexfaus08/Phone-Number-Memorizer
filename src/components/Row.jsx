@@ -10,6 +10,14 @@ const Row = (props) => {
     }
   }, [])
 
+  const hideAllDigits = (digits) => {
+    const temp = [...digits]
+    temp.forEach((digit) => {
+      digit.digit = '?'
+      digit.clear = true
+    })
+    return temp
+  }
   const disableMiddleDigit = (digits) => {
     const temp = [...digits]
     temp.forEach((digit) => {
@@ -75,6 +83,8 @@ const Row = (props) => {
         return disableLastDigit(digits)
       case (3):
         return disableFirstDigit(digits)
+      default:
+        return hideAllDigits(digits)
     }
   }
 
