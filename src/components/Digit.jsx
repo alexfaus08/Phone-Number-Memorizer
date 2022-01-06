@@ -11,7 +11,7 @@ const Digit = (props) => {
 
   return (
         <div className="digit">
-            <TextInput placeholder={props.digit} style={styles.input} editable={props.editable} onChangeText={setValue} value={value} />
+            <TextInput placeholder={props.digit} style={styles.input} editable={props.editable} onChangeText={setValue} value={value} maxLength={1} />
         </div>
   )
 }
