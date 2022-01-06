@@ -21,11 +21,11 @@ const MemorizeNumber = (props) => {
                       <Row digits={digits.slice(0, 3)} step={step} />
                       <Row digits={digits.slice(3, 6)} step={step} />
                       <Row digits={digits.slice(6, 10)} step={step} />
-                        <Button
+                      <Button
                             onPress={ nextStep }
                             title={step < 3 ? 'Next Step' : 'Done!'}
                             color="#841584"
-                        />
+                      />
                     </>
             }
             {
