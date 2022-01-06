@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Digit from './Digit'
+import Stack from '@mui/material/Stack'
 
 const Row = (props) => {
   const [isLastRow, setIsLastRow] = useState(false)
@@ -78,9 +79,9 @@ const Row = (props) => {
     })
   }
 
-  return <div className="row">
+  return <Stack direction="row" spacing={2}>
     {renderDigits()}
-  </div>
+  </Stack>
 }
 
 export default Row
