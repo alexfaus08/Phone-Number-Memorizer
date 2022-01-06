@@ -5,13 +5,14 @@ import { Button } from '@mui/material'
 const PhoneNumberHint = (props) => {
   const [isVisible, setIsVisible] = useState(false)
 
-  const handleClick = () => {
-    setIsVisible((isVisible) => (!isVisible))
-  }
+  // const handleClick = () => {
+  //   setIsVisible((isVisible) => (!isVisible))
+  // }
 
   return <div className="hint">
       <Button
-          onClick={handleClick}
+          onMouseEnter={() => setIsVisible(true)}
+          onMouseLeave={() => setIsVisible(false)}
           variant="contained"
           startIcon={<VisibilityIcon />}
       >
