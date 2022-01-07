@@ -4,9 +4,7 @@
 }
 
 .number-hint {
-    display: block;
     text-align: center;
-    padding: 10px;
     font-size: 35px;
     color: #595959;
     letter-spacing: 3px;
