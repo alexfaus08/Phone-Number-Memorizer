@@ -11,7 +11,7 @@ function App () {
   return (
       <>
           <Stack alignItems="center" sx={{ mt: 10 }}>
-              <Typography variant="h3" component="div" gutterBottom>
+              <Typography variant="h3" component="div" gutterBottom sx={{ mb: 10 }}>
                   Phone Number Memorizing Tool
               </Typography>
               <PhoneNumberInput phoneNumber={phoneNumber} passNumberData={setPhoneNumber} isActive={inputIsActive} changeVisibility={setInputIsActive} />
