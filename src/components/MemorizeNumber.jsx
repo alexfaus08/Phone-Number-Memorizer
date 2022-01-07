@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Row from './Row'
 import PhoneNumberHint from './PhoneNumberHint'
 import Box from '@mui/material/Box'
@@ -12,9 +12,21 @@ import StepTracker from './StepTracker'
 const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
   const digits = props.phoneNumber.split('')
-  const validation = false
+  const [validation, setValidation] = useState(false)
+  const [validRows, setValidRows] = useState([true, true, true])
+
+  const handleRowValidation = (event) => {
+    const temp = [...validRows]
+    temp[event.id] = event.valid
+    setValidRows(temp)
+  }
+
+  useEffect(() => {
+    console.log(validRows)
+  }, [validRows])
 
   const nextStep = () => {
+    setValidation(true)
     let value = step
     value += 1
     setStep(value)
@@ -33,9 +45,9 @@ const MemorizeNumber = (props) => {
                         </Grid>
                         <Grid item xs={8}>
                           <Stack alignItems="center">
-                            <Row digits={digits.slice(0, 3)} step={step} validation={validation}/>
-                            <Row digits={digits.slice(3, 6)} step={step} validation={validation}/>
-                            <Row digits={digits.slice(6, 10)} step={step} validation={validation}/>
+                            <Row digits={digits.slice(0, 3)} step={step} validation={validation} isRowValid={handleRowValidation} rowID={0}/>
+                            <Row digits={digits.slice(3, 6)} step={step} validation={validation} isRowValid={handleRowValidation} rowID={1}/>
+                            <Row digits={digits.slice(6, 10)} step={step} validation={validation} isRowValid={handleRowValidation} rowID={2}/>
                           </Stack>
                         </Grid>
                       </Grid>

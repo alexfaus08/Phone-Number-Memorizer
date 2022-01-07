@@ -5,6 +5,10 @@ import Stack from '@mui/material/Stack'
 const Row = (props) => {
   const [isLastRow, setIsLastRow] = useState(false)
 
+  const handleDigitValidation = (valid) => {
+    props.isRowValid({ id: props.rowID, valid: valid })
+  }
+
   const disabledDigit = {
     editable: false,
     digit: 'X',
@@ -75,7 +79,7 @@ const Row = (props) => {
       digitInputs = applyStep(digitInputs)
     }
     return digitInputs.map((digit, id) => {
-      return <Digit digit={digit.digit} key={id} editable={digit.editable} step={props.step} expectedValue={props.digits[id]} validation={props.validation} />
+      return <Digit digit={digit.digit} key={id} editable={digit.editable} step={props.step} expectedValue={props.digits[id]} validation={props.validation} validated={handleDigitValidation} />
     })
   }
 
