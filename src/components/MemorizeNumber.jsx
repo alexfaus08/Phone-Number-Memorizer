@@ -12,7 +12,7 @@ import StepTracker from './StepTracker'
 const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
   const digits = props.phoneNumber.split('')
-  const [validation, setValidation] = useState(false)
+  const [showValidation, setShowValidation] = useState(false)
   const [validRows, setValidRows] = useState([true, true, true])
 
   const handleRowValidation = (event) => {
@@ -25,8 +25,11 @@ const MemorizeNumber = (props) => {
     console.log(validRows)
   }, [validRows])
 
+  const showInvalidDigits = () => {
+    setShowValidation(true)
+  }
+
   const nextStep = () => {
-    setValidation(true)
     let value = step
     value += 1
     setStep(value)
@@ -45,14 +48,19 @@ const MemorizeNumber = (props) => {
                         </Grid>
                         <Grid item xs={8}>
                           <Stack alignItems="center">
-                            <Row digits={digits.slice(0, 3)} step={step} validation={validation} isRowValid={handleRowValidation} rowID={0}/>
-                            <Row digits={digits.slice(3, 6)} step={step} validation={validation} isRowValid={handleRowValidation} rowID={1}/>
-                            <Row digits={digits.slice(6, 10)} step={step} validation={validation} isRowValid={handleRowValidation} rowID={2}/>
+                            <Row digits={digits.slice(0, 3)} step={step} validation={showValidation} isRowValid={handleRowValidation} rowID={0}/>
+                            <Row digits={digits.slice(3, 6)} step={step} validation={showValidation} isRowValid={handleRowValidation} rowID={1}/>
+                            <Row digits={digits.slice(6, 10)} step={step} validation={showValidation} isRowValid={handleRowValidation} rowID={2}/>
                           </Stack>
                         </Grid>
                       </Grid>
                       <Stack>
                         <Box>
+                          <Button
+                              onClick={ showInvalidDigits }
+                          >
+                            Validate
+                          </Button>
                           <Button
                               onClick={ nextStep }
                               sx={{ float: 'right' }}

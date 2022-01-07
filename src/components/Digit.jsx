@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField'
 
 const Digit = (props) => {
   const [value, setValue] = useState('')
-  const [isValid, setIsValid] = useState(true)
+  const [isValid, setIsValid] = useState(false)
 
   useEffect(() => {
     setValue('')
