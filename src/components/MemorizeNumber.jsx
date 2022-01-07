@@ -4,6 +4,7 @@ import PhoneNumberHint from './PhoneNumberHint'
 import CssBaseline from '@mui/material/CssBaseline'
 import Container from '@mui/material/Container'
 import { Button } from '@mui/material'
+import Stack from '@mui/material/Stack'
 
 const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
@@ -26,11 +27,11 @@ const MemorizeNumber = (props) => {
                     </div>
                     <div>
                       <h1>Step: { step }</h1>
-                      <div className="rows">
+                      <Stack alignItems="center">
                         <Row digits={digits.slice(0, 3)} step={step}/>
                         <Row digits={digits.slice(3, 6)} step={step}/>
                         <Row digits={digits.slice(6, 10)} step={step}/>
-                      </div>
+                      </Stack>
                       <Button
                           onClick={ nextStep }
                       >
