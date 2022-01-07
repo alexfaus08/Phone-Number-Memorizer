@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Row from './Row'
 import PhoneNumberHint from './PhoneNumberHint'
 import Box from '@mui/material/Box'
@@ -16,23 +16,31 @@ const MemorizeNumber = (props) => {
   const [validRows, setValidRows] = useState([true, true, true])
 
   const handleRowValidation = (event) => {
+    console.log(event)
     const temp = [...validRows]
     temp[event.id] = event.valid
+    console.log(temp)
     setValidRows(temp)
   }
 
-  useEffect(() => {
-    console.log(validRows)
-  }, [validRows])
+  const allRowsValid = () => {
+    return !validRows.includes(false)
+  }
 
   const showInvalidDigits = () => {
     setShowValidation(true)
   }
 
   const nextStep = () => {
-    let value = step
-    value += 1
-    setStep(value)
+    if (allRowsValid()) {
+      let value = step
+      value += 1
+      setStep(value)
+      setShowValidation(false)
+      setValidRows([false, false, false])
+    } else {
+      setShowValidation(true)
+    }
   }
 
   return (

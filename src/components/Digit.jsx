@@ -7,6 +7,7 @@ const Digit = (props) => {
 
   useEffect(() => {
     setValue('')
+    setIsValid(false)
   }, [props.step])
 
   useEffect(() => {

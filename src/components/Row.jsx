@@ -6,6 +6,7 @@ const Row = (props) => {
   const [isLastRow, setIsLastRow] = useState(false)
 
   const handleDigitValidation = (valid) => {
+    // TODO: Fix, only checks for last digit passed not if entire row is valid
     props.isRowValid({ id: props.rowID, valid: valid })
   }
 

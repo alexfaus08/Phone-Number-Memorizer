@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 
 function App () {
-  const [phoneNumber, setPhoneNumber] = useState('1234567890')
+  const [phoneNumber, setPhoneNumber] = useState('5555555555')
   const [inputIsActive, setInputIsActive] = useState(true)
   return (
       <>
