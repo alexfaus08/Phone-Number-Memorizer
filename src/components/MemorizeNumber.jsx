@@ -12,6 +12,7 @@ import StepTracker from './StepTracker'
 const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
   const digits = props.phoneNumber.split('')
+  const validation = false
 
   const nextStep = () => {
     let value = step
@@ -32,9 +33,9 @@ const MemorizeNumber = (props) => {
                         </Grid>
                         <Grid item xs={8}>
                           <Stack alignItems="center">
-                            <Row digits={digits.slice(0, 3)} step={step}/>
-                            <Row digits={digits.slice(3, 6)} step={step}/>
-                            <Row digits={digits.slice(6, 10)} step={step}/>
+                            <Row digits={digits.slice(0, 3)} step={step} validation={validation}/>
+                            <Row digits={digits.slice(3, 6)} step={step} validation={validation}/>
+                            <Row digits={digits.slice(6, 10)} step={step} validation={validation}/>
                           </Stack>
                         </Grid>
                       </Grid>
