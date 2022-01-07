@@ -8,6 +8,12 @@ const PhoneNumberHint = (props) => {
   const [isVisible, setIsVisible] = useState(false)
 
   return <Stack>
+      <Chip
+          onMouseEnter={() => setIsVisible(true)}
+          onMouseLeave={() => setIsVisible(false)}
+          icon={<Help />}
+          label="Hover for a hint..."
+      />
       <Box sx={{ visibility: isVisible ? 'visible' : 'hidden' }}>
           <div className="number-hint">
               <div>
@@ -21,12 +27,6 @@ const PhoneNumberHint = (props) => {
               </div>
           </div>
       </Box>
-      <Chip
-          onMouseEnter={() => setIsVisible(true)}
-          onMouseLeave={() => setIsVisible(false)}
-          icon={<Help />}
-          label="Hover for a hint..."
-      />
   </Stack>
 }
 
