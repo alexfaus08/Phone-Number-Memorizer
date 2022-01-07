@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Digit from './Digit'
+import Stack from '@mui/material/Stack'
 
 const Row = (props) => {
   const [isLastRow, setIsLastRow] = useState(false)
+
+  const disabledDigit = {
+    editable: false,
+    digit: 'X',
+    clear: true
+  }
 
   useEffect(() => {
     if (props.digits.length === 4) {
@@ -19,45 +26,25 @@ const Row = (props) => {
   }
   const disableMiddleDigit = (digits) => {
     const temp = hideAllDigits([...digits])
-    temp[1] = {
-      editable: false,
-      digit: '-',
-      clear: true
-    }
+    temp[1] = disabledDigit
     if (isLastRow) {
-      temp[2] = {
-        editable: false,
-        digit: '-',
-        clear: true
-      }
+      temp[2] = disabledDigit
     }
     return temp
   }
 
   const disableFirstDigit = (digits) => {
     const temp = hideAllDigits([...digits])
-    temp[0] = {
-      editable: false,
-      digit: '-',
-      clear: true
-    }
+    temp[0] = disabledDigit
     return temp
   }
 
   const disableLastDigit = (digits) => {
     const temp = hideAllDigits([...digits])
     if (isLastRow) {
-      temp[3] = {
-        editable: false,
-        digit: '-',
-        clear: true
-      }
+      temp[3] = disabledDigit
     } else {
-      temp[2] = {
-        editable: false,
-        digit: '-',
-        clear: true
-      }
+      temp[2] = disabledDigit
     }
     return temp
   }
@@ -88,13 +75,13 @@ const Row = (props) => {
       digitInputs = applyStep(digitInputs)
     }
     return digitInputs.map((digit, id) => {
-      return <Digit digit={digit.digit} key={id} editable={digit.editable} clear={digit.clear} />
+      return <Digit digit={digit.digit} key={id} editable={digit.editable} step={props.step} />
     })
   }
 
-  return <div className="row">
+  return <Stack direction="row" spacing={2}>
     {renderDigits()}
-  </div>
+  </Stack>
 }
 
 export default Row

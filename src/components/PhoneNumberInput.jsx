@@ -1,9 +1,13 @@
 import React from 'react'
-import { View, TextInput, Button, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import Typography from '@mui/material/Typography'
+import TextField from '@mui/material/TextField'
+import { Button } from '@mui/material'
+import Box from '@mui/material/Box'
 
 export const PhoneNumberInput = (props) => {
-  const handleNumberChange = (newNum) => {
-    props.passNumberData(newNum)
+  const handleNumberChange = event => {
+    props.passNumberData(event.target.value)
   }
 
   const onPressMemorize = () => {
@@ -15,20 +19,22 @@ export const PhoneNumberInput = (props) => {
             {
                 props.isActive &&
                 <View style={styles.container}>
-                  <h2>
+                  <Typography variant="h5" component="div" gutterBottom>
                     Enter a Phone Number
-                  </h2>
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={handleNumberChange}
+                  </Typography>
+                  <Box>
+                    <TextField
+                        onChange={handleNumberChange}
                         value={props.phoneNumber} />
+                  </Box>
+                  <Box sx={{ p: 2 }}>
                     <Button
-                        style={styles.button}
-                        onPress={onPressMemorize}
-                        title="Time to Memorize"
-                        color="#841584"
-                        accessibilityLabel="Click to start memorizing a phone number"
-                    />
+                        onClick={onPressMemorize}
+                        variant="contained"
+                    >
+                      Time to Memorize!
+                    </Button>
+                  </Box>
                 </View>
             }
         </>

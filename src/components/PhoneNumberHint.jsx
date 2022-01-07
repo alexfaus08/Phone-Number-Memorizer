@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
-import { Button, View } from 'react-native'
+import Help from '@mui/icons-material/Help'
+import Chip from '@mui/material/Chip'
 
 const PhoneNumberHint = (props) => {
   const [isVisible, setIsVisible] = useState(false)
 
-  const handleClick = () => {
-    setIsVisible((isVisible) => (!isVisible))
-  }
-
   return <div className="hint">
-    <View style={[{ width: '25%' }]}>
-      <Button
-          title={isVisible ? 'Hide Hint' : 'Show Hint'}
-          onPress={handleClick}
+      <Chip
+          onMouseEnter={() => setIsVisible(true)}
+          onMouseLeave={() => setIsVisible(false)}
+          icon={<Help />}
+          label="Hover for a hint..."
       />
       <div className="number-hint">
         {
@@ -29,7 +27,7 @@ const PhoneNumberHint = (props) => {
           </>
         }
       </div>
-    </View>
+
   </div>
 }
 
