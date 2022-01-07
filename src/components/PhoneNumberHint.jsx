@@ -1,23 +1,17 @@
 import React, { useState } from 'react'
-import VisibilityIcon from '@mui/icons-material/Visibility'
-import { Button } from '@mui/material'
+import Help from '@mui/icons-material/Help'
+import Chip from '@mui/material/Chip'
 
 const PhoneNumberHint = (props) => {
   const [isVisible, setIsVisible] = useState(false)
 
-  // const handleClick = () => {
-  //   setIsVisible((isVisible) => (!isVisible))
-  // }
-
   return <div className="hint">
-      <Button
+      <Chip
           onMouseEnter={() => setIsVisible(true)}
           onMouseLeave={() => setIsVisible(false)}
-          variant="contained"
-          startIcon={<VisibilityIcon />}
-      >
-         Hover for a hint!
-      </Button>
+          icon={<Help />}
+          label="Hover for a hint..."
+      />
       <div className="number-hint">
         {
           isVisible && <>

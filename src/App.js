@@ -10,7 +10,7 @@ function App () {
   const [inputIsActive, setInputIsActive] = useState(true)
   return (
       <>
-          <Stack alignItems="center">
+          <Stack alignItems="center" sx={{ mt: 10 }}>
               <Typography variant="h3" component="div" gutterBottom>
                   Phone Number Memorizing Tool
               </Typography>
