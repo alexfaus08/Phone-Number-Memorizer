@@ -13,11 +13,6 @@
     margin-top: 100px;
 }
 
-.digit {
-    display: inline-block;
-    padding-bottom: 10px;
-}
-
 .digitInput {
     height: 80px;
     width: 60px;
