@@ -7,7 +7,8 @@ const Row = (props) => {
 
   const handleDigitValidation = (valid) => {
     // TODO: Fix, only checks for last digit passed not if entire row is valid
-    props.isRowValid({ id: props.rowID, valid: valid })
+    // passes row id and row validity status to MemorizeNumber parent component
+    props.memNumCallback({ id: props.rowID, valid: valid })
   }
 
   const disabledDigit = {
@@ -80,7 +81,7 @@ const Row = (props) => {
       digitInputs = applyStep(digitInputs)
     }
     return digitInputs.map((digit, id) => {
-      return <Digit digit={digit.digit} key={id} editable={digit.editable} step={props.step} expectedValue={props.digits[id]} validation={props.validation} validated={handleDigitValidation} />
+      return <Digit digit={digit.digit} key={id} editable={digit.editable} step={props.step} expectedValue={props.digits[id]} validation={props.validation} rowCallback={handleDigitValidation} />
     })
   }
 

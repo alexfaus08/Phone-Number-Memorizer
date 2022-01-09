@@ -11,7 +11,8 @@ const Digit = (props) => {
   }, [props.step])
 
   useEffect(() => {
-    props.validated(isValid)
+    // if the validity of the digit changes, pass it to Row parent
+    props.rowCallback(isValid)
   }, [isValid])
 
   const handleTextInputChange = event => {
