@@ -7,12 +7,16 @@ const Digit = (props) => {
 
   useEffect(() => {
     setValue('')
-    setIsValid(false)
+    if (!props.editable) {
+      setIsValid(true)
+    } else {
+      setIsValid(false)
+    }
   }, [props.step])
 
   useEffect(() => {
     // if the validity of the digit changes, pass it to Row parent
-    props.rowCallback(isValid)
+    props.rowCallback({ valid: isValid, id: props.digitId })
   }, [isValid])
 
   const handleTextInputChange = event => {
@@ -21,6 +25,9 @@ const Digit = (props) => {
   }
 
   const validate = num => {
+    if (!props.editable) {
+      setIsValid(true)
+    }
     if (num === props.expectedValue) {
       setIsValid(true)
     } else {

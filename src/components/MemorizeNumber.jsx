@@ -16,10 +16,8 @@ const MemorizeNumber = (props) => {
   const [validRows, setValidRows] = useState([true, true, true])
 
   const handleRowValidation = (event) => {
-    console.log(event)
     const temp = [...validRows]
     temp[event.id] = event.valid
-    console.log(temp)
     setValidRows(temp)
   }
 
