@@ -4,6 +4,22 @@ import Stack from '@mui/material/Stack'
 
 const Row = (props) => {
   const [isLastRow, setIsLastRow] = useState(false)
+  const [validDigits, setValidDigits] = useState(new Array(props.digits.length).fill(false))
+
+  const handleDigitValidation = (digit) => {
+    // when a digit validity changes, change validDigits
+    // this will also trigger useEffect() of validDigits
+    const temp = [...validDigits]
+    temp[digit.id] = digit.valid
+    setValidDigits(temp)
+  }
+
+  useEffect(() => {
+    // when valid digits changes, pass new validity to parent Memorize Number
+    const valid = !validDigits.includes(false)
+    props.memNumCallback({ id: props.rowID, valid: valid })
+    console.log('Valid Digits:', validDigits)
+  }, validDigits)
 
   const disabledDigit = {
     editable: false,
@@ -75,7 +91,7 @@ const Row = (props) => {
       digitInputs = applyStep(digitInputs)
     }
     return digitInputs.map((digit, id) => {
-      return <Digit digit={digit.digit} key={id} editable={digit.editable} step={props.step} />
+      return <Digit digit={digit.digit} key={id} digitId={id} editable={digit.editable} step={props.step} expectedValue={props.digits[id]} validation={props.validation} rowCallback={handleDigitValidation} />
     })
   }
 
