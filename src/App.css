@@ -9,3 +9,11 @@
     color: #595959;
     letter-spacing: 3px;
 }
+
+.footer {
+    align-items: center;
+}
+
+.root {
+    flex-grow: 1;
+}

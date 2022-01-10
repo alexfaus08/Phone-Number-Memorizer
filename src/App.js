@@ -4,12 +4,15 @@ import PhoneNumberInput from './components/PhoneNumberInput'
 import MemorizeNumber from './components/MemorizeNumber'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
+import Footer from './components/Footer'
+import { CssBaseline, Toolbar } from '@mui/material'
 
 function App () {
   const [phoneNumber, setPhoneNumber] = useState('1234567890')
   const [inputIsActive, setInputIsActive] = useState(true)
   return (
       <>
+          <CssBaseline />
           <Stack alignItems="center" sx={{ mt: 10 }}>
               <Typography variant="h3" component="div" gutterBottom sx={{ mb: 10 }}>
                   Phone Number Memorization Tool
@@ -22,6 +25,8 @@ function App () {
                       </>
               }
           </Stack>
+          <Toolbar />
+          <Footer />
       </>
   )
 }
