@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 import { CssBaseline, Toolbar } from '@mui/material'
 
 function App () {
-  const [phoneNumber, setPhoneNumber] = useState('1234567890')
+  const [phoneNumber, setPhoneNumber] = useState('5555555555')
   const [inputIsActive, setInputIsActive] = useState(true)
   return (
       <>
