@@ -5,7 +5,7 @@ import MemorizeNumber from './components/MemorizeNumber'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
 import Footer from './components/Footer'
-import { CssBaseline, Toolbar } from '@mui/material'
+import { CssBaseline } from '@mui/material'
 
 function App () {
   const [phoneNumber, setPhoneNumber] = useState('5555555555')
@@ -25,7 +25,6 @@ function App () {
                       </>
               }
           </Stack>
-          <Toolbar />
           <Footer />
       </>
   )
