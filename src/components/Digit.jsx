@@ -7,6 +7,12 @@ const Digit = (props) => {
     setValue('')
   }, [props.step])
 
+  useEffect(() => {
+    if (value === props.correctDigit) {
+      console.log('Valid!')
+    }
+  }, [props.stepEnding])
+
   const handleTextInputChange = event => {
     setValue(event.target.value)
   }
