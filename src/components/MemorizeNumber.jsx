@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography'
 const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
   const [open, setOpen] = useState(false)
+  const [isStepEnding, setIsStepEnding] = useState(false)
   const digits = props.phoneNumber.split('')
 
   const restartProcess = (newNum = false) => {
@@ -73,9 +74,9 @@ const MemorizeNumber = (props) => {
                         </Grid>
                         <Grid item xs={8}>
                           <Stack alignItems="center">
-                            <Row digits={digits.slice(0, 3)} step={step}/>
-                            <Row digits={digits.slice(3, 6)} step={step}/>
-                            <Row digits={digits.slice(6, 10)} step={step}/>
+                            <Row digits={digits.slice(0, 3)} step={step} stepEnding={ isStepEnding }/>
+                            <Row digits={digits.slice(3, 6)} step={step} stepEnding={ isStepEnding }/>
+                            <Row digits={digits.slice(6, 10)} step={step} stepEnding={ isStepEnding }/>
                           </Stack>
                         </Grid>
                       </Grid>
