@@ -5,16 +5,22 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import CssBaseline from '@mui/material/CssBaseline'
 import Container from '@mui/material/Container'
-import { Button } from '@mui/material'
+import { Button, Dialog, DialogTitle } from '@mui/material'
 import Stack from '@mui/material/Stack'
 import StepTracker from './StepTracker'
 
 const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
+  const [open, setOpen] = React.useState(false)
   const digits = props.phoneNumber.split('')
 
-  const restartProcess = () => {
-    setStep(0)
+  const restartProcess = (newNum = false) => {
+    if (newNum) {
+      props.changeVisibility(true)
+    } else {
+      setStep(0)
+    }
+    setOpen(false)
   }
 
   const handleStep = (newStep) => {
@@ -27,8 +33,34 @@ const MemorizeNumber = (props) => {
     setStep(value)
   }
 
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
   return (
         <>
+          <Dialog
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="alert-dialog-title">
+              {'Restart Process'}
+            </DialogTitle>
+            <Stack sx={{ pl: 5, pr: 5, pb: 2 }} spacing={2}>
+              <Button onClick={() => restartProcess(true)} variant="contained">
+                New Phone Number
+              </Button>
+              <Button onClick={() => restartProcess(false)} variant="contained">
+                Same Phone Number
+              </Button>
+            </Stack>
+          </Dialog>
             {
                 props.isActive && step <= 4 && <>
                   <CssBaseline />
@@ -46,7 +78,7 @@ const MemorizeNumber = (props) => {
                           </Stack>
                         </Grid>
                       </Grid>
-                      <Stack>
+                      <Stack spacing={5}>
                         <Box>
                           <Button
                               onClick={ nextStep }
@@ -55,10 +87,10 @@ const MemorizeNumber = (props) => {
                             {step < 4 ? 'Next Step' : 'Done!'}
                           </Button>
                           <Button
-                              onClick={ restartProcess }
+                              onClick={ handleClickOpen }
                               sx={{ float: 'left' }}
                           >
-                            Restart Process
+                            Restart
                           </Button>
                         </Box>
                         <StepTracker step={step} onChangeStep={handleStep} />
@@ -71,14 +103,14 @@ const MemorizeNumber = (props) => {
                 step > 4 &&
                     <Stack spacing={2}>
                       <Button
-                          onClick={ restartProcess }
+                          onClick={ () => restartProcess(false) }
                           variant="contained"
                           sx={{ float: 'left' }}
                       >
                         Restart with same number
                       </Button>
                       <Button
-                          onClick={ () => props.changeVisibility(true) }
+                          onClick={ () => restartProcess(true) }
                           variant="contained"
                           sx={{ float: 'left' }}
                       >
