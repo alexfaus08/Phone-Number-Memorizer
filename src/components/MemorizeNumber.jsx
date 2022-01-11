@@ -13,6 +13,10 @@ const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
   const digits = props.phoneNumber.split('')
 
+  const restartProcess = () => {
+    setStep(0)
+  }
+
   const nextStep = () => {
     let value = step
     value += 1
@@ -45,6 +49,12 @@ const MemorizeNumber = (props) => {
                               sx={{ float: 'right' }}
                           >
                             {step < 4 ? 'Next Step' : 'Done!'}
+                          </Button>
+                          <Button
+                              onClick={ restartProcess }
+                              sx={{ float: 'left' }}
+                          >
+                            Restart Process
                           </Button>
                         </Box>
                         <StepTracker step={step} />
