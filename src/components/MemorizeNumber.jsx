@@ -17,7 +17,7 @@ const MemorizeNumber = (props) => {
 
   const restartProcess = (newNum = false) => {
     if (newNum) {
-      props.changeVisibility(true)
+      props.restart()
     } else {
       setStep(0)
     }
@@ -107,18 +107,18 @@ const MemorizeNumber = (props) => {
                         You did it! 🥳
                       </Typography>
                       <Button
-                          onClick={ () => restartProcess(false) }
-                          variant="contained"
-                          sx={{ float: 'left' }}
-                      >
-                        Restart with same number
-                      </Button>
-                      <Button
                           onClick={ () => restartProcess(true) }
                           variant="contained"
                           sx={{ float: 'left' }}
                       >
                         Restart with New number
+                      </Button>
+                      <Button
+                          onClick={ () => restartProcess(false) }
+                          variant="contained"
+                          sx={{ float: 'left' }}
+                      >
+                        Restart with same number
                       </Button>
                     </Stack>
             }
