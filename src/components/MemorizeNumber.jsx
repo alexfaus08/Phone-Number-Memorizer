@@ -18,7 +18,6 @@ const MemorizeNumber = (props) => {
   }
 
   const handleStep = (newStep) => {
-    console.log(newStep)
     setStep(newStep)
   }
 
@@ -70,9 +69,22 @@ const MemorizeNumber = (props) => {
             }
             {
                 step > 4 &&
-                    <>
-                    <h2>Congrats!</h2>
-                    </>
+                    <Stack spacing={2}>
+                      <Button
+                          onClick={ restartProcess }
+                          variant="contained"
+                          sx={{ float: 'left' }}
+                      >
+                        Restart with same number
+                      </Button>
+                      <Button
+                          onClick={ () => props.changeVisibility(true) }
+                          variant="contained"
+                          sx={{ float: 'left' }}
+                      >
+                        Restart with New number
+                      </Button>
+                    </Stack>
             }
         </>
   )
