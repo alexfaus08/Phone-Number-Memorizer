@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, StyleSheet } from 'react-native'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
@@ -6,12 +6,24 @@ import { Button } from '@mui/material'
 import Box from '@mui/material/Box'
 
 export const PhoneNumberInput = (props) => {
+  const [isValidPhoneNum, setIsValidPhoneNum] = useState(false)
+  const [displayHelpText, setDisplayHelpText] = useState(false)
   const handleNumberChange = event => {
     props.passNumberData(event.target.value)
+    if (event.target.value.length === 10) {
+      setIsValidPhoneNum(true)
+      setDisplayHelpText(false)
+    } else {
+      setIsValidPhoneNum(false)
+    }
   }
 
   const onPressMemorize = () => {
-    props.changeVisibility(false)
+    if (isValidPhoneNum) {
+      props.changeVisibility(false)
+    } else {
+      setDisplayHelpText(true)
+    }
   }
 
   return (
@@ -24,8 +36,14 @@ export const PhoneNumberInput = (props) => {
                   </Typography>
                   <Box>
                     <TextField
+                        error={!isValidPhoneNum}
+                        helperText={ displayHelpText ? 'Enter a 10 digit phone number' : '' }
+                        required
                         onChange={handleNumberChange}
-                        value={props.phoneNumber} />
+                        value={props.phoneNumber}
+                        inputProps={{
+                          maxLength: 10
+                        }}/>
                   </Box>
                   <Box sx={{ p: 2 }}>
                     <Button
