@@ -17,6 +17,11 @@ const MemorizeNumber = (props) => {
     setStep(0)
   }
 
+  const handleStep = (newStep) => {
+    console.log(newStep)
+    setStep(newStep)
+  }
+
   const nextStep = () => {
     let value = step
     value += 1
@@ -57,7 +62,7 @@ const MemorizeNumber = (props) => {
                             Restart Process
                           </Button>
                         </Box>
-                        <StepTracker step={step} />
+                        <StepTracker step={step} onChangeStep={handleStep} />
                       </Stack>
                     </div>
                   </Container>

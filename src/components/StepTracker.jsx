@@ -1,7 +1,7 @@
 import React from 'react'
 import Stepper from '@mui/material/Stepper'
 import Step from '@mui/material/Step'
-import StepLabel from '@mui/material/StepLabel'
+import { StepButton } from '@mui/material'
 
 const StepTracker = (props) => {
   const steps = ['Type in number with help', 'Type number without the middle digits', 'Type number without the last digit', 'Type number without the first digit', 'Type in number without help']
@@ -9,11 +9,11 @@ const StepTracker = (props) => {
         <>
             <Stepper activeStep={props.step}>
                 {steps.map((label, index) => {
-                  const stepProps = {}
-                  const labelProps = {}
                   return (
-                        <Step key={label} {...stepProps}>
-                            <StepLabel {...labelProps}>{label}</StepLabel>
+                        <Step key={label}>
+                            <StepButton color="inherit" onClick={() => props.onChangeStep(index)}>
+                                {label}
+                            </StepButton>
                         </Step>
                   )
                 })}
