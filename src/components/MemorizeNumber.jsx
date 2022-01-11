@@ -8,6 +8,7 @@ import Container from '@mui/material/Container'
 import { Button, Dialog, DialogTitle } from '@mui/material'
 import Stack from '@mui/material/Stack'
 import StepTracker from './StepTracker'
+import Typography from '@mui/material/Typography'
 
 const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
@@ -20,7 +21,7 @@ const MemorizeNumber = (props) => {
     } else {
       setStep(0)
     }
-    setOpen(false)
+    handleClose()
   }
 
   const handleStep = (newStep) => {
@@ -101,7 +102,10 @@ const MemorizeNumber = (props) => {
             }
             {
                 step > 4 &&
-                    <Stack spacing={2}>
+                    <Stack spacing={2} alignItems="center">
+                      <Typography variant="h4" component="div" sx={{ mb: 2 }}>
+                        You did it! 🥳
+                      </Typography>
                       <Button
                           onClick={ () => restartProcess(false) }
                           variant="contained"
