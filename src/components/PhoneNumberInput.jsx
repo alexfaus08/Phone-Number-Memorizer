@@ -8,6 +8,7 @@ import Box from '@mui/material/Box'
 export const PhoneNumberInput = (props) => {
   const [isValidPhoneNum, setIsValidPhoneNum] = useState(false)
   const [displayHelpText, setDisplayHelpText] = useState(false)
+
   const handleNumberChange = event => {
     props.passNumberData(event.target.value)
     if (event.target.value.length === 10) {
@@ -21,6 +22,9 @@ export const PhoneNumberInput = (props) => {
   const onPressMemorize = () => {
     if (isValidPhoneNum) {
       props.changeVisibility(false)
+      // for reset
+      setIsValidPhoneNum(false)
+      setDisplayHelpText(false)
     } else {
       setDisplayHelpText(true)
     }
@@ -36,7 +40,7 @@ export const PhoneNumberInput = (props) => {
                   </Typography>
                   <Box>
                     <TextField
-                        error={!isValidPhoneNum}
+                        error={!isValidPhoneNum && displayHelpText}
                         helperText={ displayHelpText ? 'Enter a 10 digit phone number' : '' }
                         required
                         onChange={handleNumberChange}
