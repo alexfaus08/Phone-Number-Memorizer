@@ -10,6 +10,11 @@ import { CssBaseline } from '@mui/material'
 function App () {
   const [phoneNumber, setPhoneNumber] = useState('5555555555')
   const [inputIsActive, setInputIsActive] = useState(true)
+
+  const handleRestart = () => {
+    setInputIsActive(true)
+    setPhoneNumber('')
+  }
   return (
       <>
           <CssBaseline />
@@ -21,7 +26,7 @@ function App () {
               {
                   !inputIsActive &&
                       <>
-                          <MemorizeNumber phoneNumber={phoneNumber} isActive={!inputIsActive} changeVisibility={setInputIsActive}/>
+                          <MemorizeNumber phoneNumber={phoneNumber} isActive={!inputIsActive} changeVisibility={setInputIsActive} restart={ handleRestart }/>
                       </>
               }
           </Stack>
