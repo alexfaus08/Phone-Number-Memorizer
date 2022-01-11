@@ -11,7 +11,7 @@ import StepTracker from './StepTracker'
 
 const MemorizeNumber = (props) => {
   const [step, setStep] = useState(0)
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
   const digits = props.phoneNumber.split('')
 
   const restartProcess = (newNum = false) => {
