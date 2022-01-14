@@ -11,6 +11,7 @@ import StepTracker from './StepTracker'
 import Typography from '@mui/material/Typography'
 import { useSelector, useDispatch } from 'react-redux'
 import { resetValidDigits } from '../features/validDigitsSlice'
+import { showValidity, hideValidity } from '../features/showValiditySlice'
 
 const MemorizeNumber = (props) => {
   const dispatch = useDispatch()
@@ -33,10 +34,16 @@ const MemorizeNumber = (props) => {
   }
 
   const nextStep = () => {
-    let value = step
-    value += 1
-    setStep(value)
-    dispatch(resetValidDigits())
+    if (validDigits.includes(false)) {
+      dispatch(showValidity())
+      console.log('hello')
+    } else {
+      dispatch(hideValidity())
+      let value = step
+      value += 1
+      setStep(value)
+      dispatch(resetValidDigits())
+    }
   }
 
   const handleClickOpen = () => {

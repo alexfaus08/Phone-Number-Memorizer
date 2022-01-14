@@ -6,15 +6,21 @@ export const showValiditySlice = createSlice({
     value: false
   },
   reducers: {
-    toggleValidity: (state) => {
+    showValidity: (state) => {
       return {
         ...state,
-        value: !state.value
+        value: true
+      }
+    },
+    hideValidity: (state) => {
+      return {
+        ...state,
+        value: false
       }
     }
   }
 })
 
-export const { toggleValidity } = showValiditySlice.actions
+export const { showValidity, hideValidity } = showValiditySlice.actions
 
 export default showValiditySlice.reducer
