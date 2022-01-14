@@ -37,7 +37,6 @@ const MemorizeNumber = (props) => {
   const nextStep = () => {
     if (validDigits.includes(false)) {
       dispatch(showValidity())
-      console.log('hello')
     } else {
       dispatch(hideValidity())
       let value = step
