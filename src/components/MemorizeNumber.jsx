@@ -9,13 +9,19 @@ import { Button, Dialog, DialogTitle } from '@mui/material'
 import Stack from '@mui/material/Stack'
 import StepTracker from './StepTracker'
 import Typography from '@mui/material/Typography'
+import { useSelector, useDispatch } from 'react-redux'
+import { resetValidDigits } from '../features/validDigitsSlice'
+import { showValidity, hideValidity } from '../features/showValiditySlice'
 
 const MemorizeNumber = (props) => {
+  const dispatch = useDispatch()
+  const validDigits = useSelector((state) => state.validDigits.value)
   const [step, setStep] = useState(0)
   const [open, setOpen] = useState(false)
   const digits = props.phoneNumber.split('')
 
   const restartProcess = (newNum = false) => {
+    dispatch(hideValidity())
     if (newNum) {
       props.restart()
     } else {
@@ -29,9 +35,15 @@ const MemorizeNumber = (props) => {
   }
 
   const nextStep = () => {
-    let value = step
-    value += 1
-    setStep(value)
+    if (validDigits.includes(false)) {
+      dispatch(showValidity())
+    } else {
+      dispatch(hideValidity())
+      let value = step
+      value += 1
+      setStep(value)
+      dispatch(resetValidDigits())
+    }
   }
 
   const handleClickOpen = () => {
@@ -73,9 +85,10 @@ const MemorizeNumber = (props) => {
                         </Grid>
                         <Grid item xs={8}>
                           <Stack alignItems="center">
-                            <Row digits={digits.slice(0, 3)} step={step}/>
-                            <Row digits={digits.slice(3, 6)} step={step}/>
-                            <Row digits={digits.slice(6, 10)} step={step}/>
+                            <Row digits={digits.slice(0, 3)} step={step}
+                                rowID={0}/>
+                            <Row digits={digits.slice(3, 6)} step={step} rowID={1}/>
+                            <Row digits={digits.slice(6, 10)} step={step} rowID={2}/>
                           </Stack>
                         </Grid>
                       </Grid>
