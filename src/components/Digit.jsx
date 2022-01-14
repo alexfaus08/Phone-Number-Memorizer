@@ -9,6 +9,9 @@ const Digit = (props) => {
   const [value, setValue] = useState('')
   useEffect(() => {
     setValue('')
+    if (!props.editable) {
+      dispatch(addDigit({ digitID: props.digitID, rowID: props.rowID, value: true }))
+    }
   }, [props.step])
 
   const handleTextInputChange = event => {

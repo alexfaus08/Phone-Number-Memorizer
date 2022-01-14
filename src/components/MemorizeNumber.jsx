@@ -9,9 +9,11 @@ import { Button, Dialog, DialogTitle } from '@mui/material'
 import Stack from '@mui/material/Stack'
 import StepTracker from './StepTracker'
 import Typography from '@mui/material/Typography'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { resetValidDigits } from '../features/validDigitsSlice'
 
 const MemorizeNumber = (props) => {
+  const dispatch = useDispatch()
   const validDigits = useSelector((state) => state.validDigits.value)
   const [step, setStep] = useState(0)
   const [open, setOpen] = useState(false)
@@ -34,6 +36,7 @@ const MemorizeNumber = (props) => {
     let value = step
     value += 1
     setStep(value)
+    dispatch(resetValidDigits())
   }
 
   const handleClickOpen = () => {

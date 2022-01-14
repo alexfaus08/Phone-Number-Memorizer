@@ -24,13 +24,13 @@ export const validDigitsSlice = createSlice({
     resetValidDigits: (state) => {
       return {
         ...state,
-        value: []
+        value: new Array(10).fill(false)
       }
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { addDigit } = validDigitsSlice.actions
+export const { addDigit, resetValidDigits } = validDigitsSlice.actions
 
 export default validDigitsSlice.reducer
