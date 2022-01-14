@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 import { CssBaseline } from '@mui/material'
 
 function App () {
-  const [phoneNumber, setPhoneNumber] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('5555555555')
   const [inputIsActive, setInputIsActive] = useState(true)
 
   const handleRestart = () => {

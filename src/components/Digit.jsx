@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import TextField from '@mui/material/TextField'
+import { useDispatch } from 'react-redux'
+import { addDigit } from '../features/validDigitsSlice'
 
 const Digit = (props) => {
+  const dispatch = useDispatch()
+
   const [value, setValue] = useState('')
   useEffect(() => {
     setValue('')
@@ -9,6 +13,7 @@ const Digit = (props) => {
 
   const handleTextInputChange = event => {
     setValue(event.target.value)
+    dispatch(addDigit(true))
   }
 
   return (

@@ -9,8 +9,10 @@ import { Button, Dialog, DialogTitle } from '@mui/material'
 import Stack from '@mui/material/Stack'
 import StepTracker from './StepTracker'
 import Typography from '@mui/material/Typography'
+import { useSelector } from 'react-redux'
 
 const MemorizeNumber = (props) => {
+  const validDigits = useSelector((state) => state.validDigits.value)
   const [step, setStep] = useState(0)
   const [open, setOpen] = useState(false)
   const digits = props.phoneNumber.split('')
@@ -79,6 +81,9 @@ const MemorizeNumber = (props) => {
                           </Stack>
                         </Grid>
                       </Grid>
+                      <span>
+                        { validDigits.toString() }
+                      </span>
                       <Stack spacing={5}>
                         <Box>
                           <Button
