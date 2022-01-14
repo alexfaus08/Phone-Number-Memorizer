@@ -6,7 +6,8 @@ import { Button } from '@mui/material'
 import Box from '@mui/material/Box'
 
 export const PhoneNumberInput = (props) => {
-  const [isValidPhoneNum, setIsValidPhoneNum] = useState(false)
+  // FIXME: change me back to false!
+  const [isValidPhoneNum, setIsValidPhoneNum] = useState(true)
   const [displayHelpText, setDisplayHelpText] = useState(false)
 
   const handleNumberChange = event => {

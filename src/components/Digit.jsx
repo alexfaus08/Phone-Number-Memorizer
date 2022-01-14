@@ -13,7 +13,11 @@ const Digit = (props) => {
 
   const handleTextInputChange = event => {
     setValue(event.target.value)
-    dispatch(addDigit(true))
+    if (event.target.value === props.correctDigit) {
+      dispatch(addDigit(true))
+    } else {
+      dispatch(addDigit(false))
+    }
   }
 
   return (
