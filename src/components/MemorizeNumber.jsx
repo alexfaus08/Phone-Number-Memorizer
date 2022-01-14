@@ -21,6 +21,7 @@ const MemorizeNumber = (props) => {
   const digits = props.phoneNumber.split('')
 
   const restartProcess = (newNum = false) => {
+    dispatch(hideValidity())
     if (newNum) {
       props.restart()
     } else {
@@ -92,9 +93,6 @@ const MemorizeNumber = (props) => {
                           </Stack>
                         </Grid>
                       </Grid>
-                      <span>
-                        { validDigits.toString() }
-                      </span>
                       <Stack spacing={5}>
                         <Box>
                           <Button
