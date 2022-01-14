@@ -54,6 +54,11 @@ const Digit = (props) => {
     if (!lastDigit) {
       nextInput.focus()
       nextInput.select()
+    } else {
+      const nextStep = document.getElementById('next-step')
+      if (nextStep) {
+        nextStep.focus()
+      }
     }
   }
 

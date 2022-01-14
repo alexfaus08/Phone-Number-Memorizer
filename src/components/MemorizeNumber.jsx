@@ -95,6 +95,7 @@ const MemorizeNumber = (props) => {
                       <Stack spacing={5}>
                         <Box>
                           <Button
+                              id="next-step"
                               onClick={ nextStep }
                               sx={{ float: 'right' }}
                           >
