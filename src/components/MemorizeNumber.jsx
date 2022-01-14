@@ -75,9 +75,10 @@ const MemorizeNumber = (props) => {
                         </Grid>
                         <Grid item xs={8}>
                           <Stack alignItems="center">
-                            <Row digits={digits.slice(0, 3)} step={step}/>
-                            <Row digits={digits.slice(3, 6)} step={step}/>
-                            <Row digits={digits.slice(6, 10)} step={step}/>
+                            <Row digits={digits.slice(0, 3)} step={step}
+                                rowID={0}/>
+                            <Row digits={digits.slice(3, 6)} step={step} rowID={1}/>
+                            <Row digits={digits.slice(6, 10)} step={step} rowID={2}/>
                           </Stack>
                         </Grid>
                       </Grid>
