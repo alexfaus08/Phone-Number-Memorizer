@@ -4,11 +4,16 @@ export const validDigitsSlice = createSlice({
   name: 'counter',
   initialState: {
     // TODO: change variable name
-    value: []
+    value: new Array(10).fill(false)
   },
   reducers: {
     addDigit: (state, action) => {
-      state.value.push(action.payload)
+      const { id, value } = action.payload
+      console.log(id, value)
+      if (!state.value[id]) {
+        state.value[id] = false
+      }
+      state.value[id] = value
     },
     resetValidDigits: (state) => {
       return {
