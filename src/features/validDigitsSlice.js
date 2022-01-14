@@ -8,12 +8,18 @@ export const validDigitsSlice = createSlice({
   },
   reducers: {
     addDigit: (state, action) => {
-      const { id, value } = action.payload
-      console.log(id, value)
-      if (!state.value[id]) {
-        state.value[id] = false
+      const { digitID, rowID, value } = action.payload
+      let newDigitID = digitID
+      if (rowID === 1) {
+        newDigitID += 3
       }
-      state.value[id] = value
+      if (rowID === 2) {
+        newDigitID += 6
+      }
+      if (!state.value[newDigitID]) {
+        state.value[newDigitID] = false
+      }
+      state.value[newDigitID] = value
     },
     resetValidDigits: (state) => {
       return {
