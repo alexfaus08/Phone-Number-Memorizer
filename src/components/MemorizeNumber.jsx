@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Row from './Row'
 import PhoneNumberHint from './PhoneNumberHint'
 import Box from '@mui/material/Box'
@@ -29,6 +29,20 @@ const MemorizeNumber = (props) => {
     }
     handleClose()
   }
+
+  useEffect(() => {
+    if (step < 5) {
+      let firstInput = document.querySelector(
+        'input[name=\'digit-0\']'
+      )
+      if (firstInput.disabled) {
+        firstInput = document.querySelector(
+          'input[name=\'digit-1\']'
+        )
+      }
+      firstInput.focus()
+    }
+  }, [step])
 
   const handleStep = (newStep) => {
     setStep(newStep)
