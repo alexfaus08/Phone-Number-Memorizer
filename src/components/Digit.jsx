@@ -14,6 +14,49 @@ const Digit = (props) => {
     setIsValid(validity)
   }
 
+  const digitName = () => {
+    let newDigitID = props.digitID
+    if (props.rowID === 1) {
+      newDigitID += 3
+    }
+    if (props.rowID === 2) {
+      newDigitID += 6
+    }
+    return `digit-${newDigitID}`
+  }
+
+  const nextDigitName = (previousID) => {
+    let newDigitID = previousID
+    if (props.rowID === 1) {
+      newDigitID += 3
+    }
+    if (props.rowID === 2) {
+      newDigitID += 6
+    }
+    newDigitID += 1
+    return `digit-${newDigitID}`
+  }
+
+  const focusNextDigit = () => {
+    let idx = props.digitID
+    let nextInput = null
+    let lastDigit = true
+    for (idx; idx < 10; idx += 1) {
+      const inputName = nextDigitName(idx)
+      nextInput = document.querySelector(
+          `input[name=${inputName}]`
+      )
+      if (nextInput && !nextInput?.disabled) {
+        lastDigit = false
+        break
+      }
+    }
+    if (!lastDigit) {
+      nextInput.focus()
+      nextInput.select()
+    }
+  }
+
   useEffect(() => {
     setValue('')
     setIsValid(false)
@@ -29,6 +72,9 @@ const Digit = (props) => {
     } else {
       dispatchValidityChange(false)
     }
+    if (event.target.value !== '') {
+      focusNextDigit()
+    }
   }
 
   return (
@@ -36,7 +82,8 @@ const Digit = (props) => {
           <TextField className="digitInput" error={!isValid && showValidity} disabled={!props.editable} placeholder={props.digit} onChange={handleTextInputChange} value={value} autoComplete='off'
           inputProps={{
             maxLength: 1,
-            style: { textAlign: 'center' }
+            style: { textAlign: 'center' },
+            name: digitName()
           }
           } />
         </>
