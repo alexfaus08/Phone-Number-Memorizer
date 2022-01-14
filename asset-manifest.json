@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Phone-Number-Memorizer/static/css/main.be2c0ca7.css",
+    "main.js": "/Phone-Number-Memorizer/static/js/main.35c1d01d.js",
+    "index.html": "/Phone-Number-Memorizer/index.html",
+    "main.be2c0ca7.css.map": "/Phone-Number-Memorizer/static/css/main.be2c0ca7.css.map",
+    "main.35c1d01d.js.map": "/Phone-Number-Memorizer/static/js/main.35c1d01d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be2c0ca7.css",
+    "static/js/main.35c1d01d.js"
+  ]
+}

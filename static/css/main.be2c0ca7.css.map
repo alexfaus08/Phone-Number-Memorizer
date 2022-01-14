@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.be2c0ca7.css","mappings":"AAAA,YACI,WAAY,CACZ,UACJ,CAEA,aAGI,aAAc,CADd,cAAe,CAEf,kBAAmB,CAHnB,iBAIJ","sources":["App.css"],"sourcesContent":[".digitInput {\n    height: 80px;\n    width: 60px;\n}\n\n.number-hint {\n    text-align: center;\n    font-size: 35px;\n    color: #595959;\n    letter-spacing: 3px;\n}\n"],"names":[],"sourceRoot":""}
